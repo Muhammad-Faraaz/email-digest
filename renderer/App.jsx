@@ -184,7 +184,7 @@ export default function App() {
       <div className="h-full rounded-2xl border border-zinc-800 bg-[#121212]/90 p-4 shadow-2xl flex flex-col gap-4">
         <header className="flex items-start justify-between">
           <div>
-            <p className="text-sm text-zinc-300">{getGreeting()}, Muhammad</p>
+          <p className="text-sm text-zinc-300">{getGreeting()}{process.env.USER_NAME ? `, ${process.env.USER_NAME}` : ''}</p>
             <p className="text-xs text-zinc-500">{formatDate()}</p>
           </div>
           <button
