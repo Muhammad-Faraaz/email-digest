@@ -1,0 +1,51 @@
+{
+  "name": "email-digest",
+  "version": "1.0.0",
+  "description": "macOS menu bar daily email digest app",
+  "main": "main.cjs",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview"
+  },
+  "build": {
+    "appId": "com.emaildigest.app",
+    "productName": "Email Digest",
+    "files": [
+      "dist/**/*",
+      "main.cjs",
+      "preload.cjs",
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ]
+    }
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.55.0",
+    "dotenv": "^16.4.7",
+    "electron-store": "^8.2.0",
+    "googleapis": "^140.0.1",
+    "node-cron": "^3.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.19",
+    "wait-on": "^7.2.0"
+  }
+}
